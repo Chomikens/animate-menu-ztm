@@ -72,6 +72,8 @@ header.nav {
   flex-direction: column;
   justify-content: space-evenly;
   color: var(--primaryColor);
+  transform: translateX(-100%); /* Initially hide the menu off-screen */
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .page-nav > * {
   flex-grow: 1;
@@ -87,6 +89,7 @@ header.nav {
 }
 .page-nav li {
   position: relative;
+  transform: translateX(-100%);
   transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .page-nav li::before {
@@ -203,6 +206,16 @@ header.nav {
 
 /* Utility classes */
 .moveToTop {
+  transform: translateX(0);
+}
+.moveToTop li {
+  transform: translateX(0);
+}
+
+.initialPosition {
+  transform: translateX(-100%);
+}
+.initialPosition li {
   transform: translateX(-100%);
 }
 

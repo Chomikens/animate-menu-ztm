@@ -39,8 +39,7 @@ body {
   justify-content: center;
   min-height: 100vh;
   min-height: 100svh;
-  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 /* Header */
@@ -74,6 +73,8 @@ header.nav {
   flex-direction: column;
   justify-content: space-evenly;
   color: var(--primaryColor);
+  transform: translateX(-100%); /* Initially hide the menu off-screen */
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
   > * {
     flex-grow: 1;
@@ -91,7 +92,8 @@ header.nav {
 
   li {
     position: relative;
-    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), ;
+    transform: translateX(-100%);
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
     &::before {
       content: "";
@@ -107,7 +109,6 @@ header.nav {
 
     &:hover::before {
       transform: scale(1);
-      
     }
 
     @for $i from 1 through 4 {
@@ -201,5 +202,17 @@ header.nav {
 
 /* Utility classes */
 .moveToTop {
+  transform: translateX(0);
+
+  li {
+    transform: translateX(0);
+  }
+}
+
+.initialPosition {
   transform: translateX(-100%);
+
+  li {
+    transform: translateX(-100%);
+  }
 }

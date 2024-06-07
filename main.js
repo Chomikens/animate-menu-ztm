@@ -11,13 +11,16 @@ const nav = document.querySelector(".page-nav");
 const button = document.querySelector(".button__background");
 
 /**
- * Toggle the 'moveToTop' class on all navigation items.
+ * Initially hide the menu by adding the 'initialPosition' class.
+ */
+nav.classList.add('initialPosition');
+
+/**
+ * Toggle the 'moveToTop' and 'initialPosition' classes on the navigation and its items.
  */
 function toggleMenu() {
-  const navItems = nav.querySelectorAll(".page-nav li");
-  navItems.forEach((li) => {
-    li.classList.toggle("moveToTop");
-  });
+  nav.classList.toggle('moveToTop');
+  nav.classList.toggle('initialPosition');
 }
 
 /**
